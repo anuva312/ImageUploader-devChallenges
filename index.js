@@ -1,14 +1,19 @@
 const express = require("express");
 var multer = require("multer");
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 
 app.get("/", (req, res) => {
   res.send("Hello there!");
 });
 
+app.post("/post", (req, res) => {
+  console.log("Connected to React");
+  res.redirect("/");
+});
+
 app.listen(PORT, () => {
-  console.log("Server running");
+  console.log(`Server started on port ${PORT}`);
 });
 
 //store images in uploads folder
