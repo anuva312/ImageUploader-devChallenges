@@ -64,4 +64,5 @@ $ yarn start
 
 ## Acknowledgements
 
-- [How to Upload Images in Your Node.js App](https://javascript.plainenglish.io/upload-images-in-your-node-app-e05d0423fd4a)
+- [How to Upload Images in Your Node.js App?](https://javascript.plainenglish.io/upload-images-in-your-node-app-e05d0423fd4a)
+- [How to connect Node.js with React.js?](https://www.geeksforgeeks.org/how-to-connect-node-js-with-react-js/)
