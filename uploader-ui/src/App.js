@@ -1,26 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
+import DragAndDrop from "./components/DragAndDrop.js";
 
 function App() {
+  const onUpload = function (file) {
+    console.log("File Uploading...", file);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <form action="/post" method="post" className="form">
-          <button type="submit">Connected?</button>
-        </form>
-      </header>
+      <div className="main-container">
+        <div className="drag-drop-container">
+          <DragAndDrop onUpload={onUpload} count={1} formats={["jpg", "png"]}>
+            <div className="drag-drop-area">
+              Drag and Drop your image here
+              <span role="img" aria-label="emoji" className="area__icon">
+                &#128526;
+              </span>
+            </div>
+          </DragAndDrop>
+        </div>
+      </div>
     </div>
   );
 }
