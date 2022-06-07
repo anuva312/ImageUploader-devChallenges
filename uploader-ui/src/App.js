@@ -29,6 +29,7 @@ function App() {
         </div>
         <div className="or-label">Or</div>
         <div>
+          {/* TODO: Make this into a component */}
           <label className="choose-file-button-container choose-file-button">
             <input type="file" id="choose-file" name="choose-file" />
             Choose file
