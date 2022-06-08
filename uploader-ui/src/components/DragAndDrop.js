@@ -2,12 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./DragAndDrop.css";
 
-export default function FilesDragAndDrop({
-  onUpload,
-  children,
-  count,
-  formats,
-}) {
+export default function DragAndDrop({ onUpload, children, count, formats }) {
   const drop = React.useRef(null);
   const [dragging, setDragging] = React.useState(false);
   const drag = React.useRef(null);
@@ -160,6 +155,6 @@ export default function FilesDragAndDrop({
   );
 }
 
-FilesDragAndDrop.propTypes = {
+DragAndDrop.propTypes = {
   onUpload: PropTypes.func.isRequired,
 };
