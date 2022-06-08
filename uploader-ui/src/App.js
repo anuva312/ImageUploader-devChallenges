@@ -1,17 +1,34 @@
 import "./App.css";
 import DragAndDrop from "./components/DragAndDrop.js";
+import ChooseFile from "./components/ChooseFile.js";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  const countOfFilesSupported = 1;
+  const fileFormatsSupported = ["jpeg", "jpg", "png"];
   const onUpload = function (file) {
     console.log("File Uploading...", file);
   };
+
+  const onValiationError = function (message) {
+    console.log(message);
+    toast.error(message, {
+      theme: "colored",
+    });
+  };
   return (
     <div className="App">
+      <ToastContainer />
       <div className="main-container">
         <div className="heading">Upload your image</div>
         <div className="help-text">Files should be jpeg,png,jpg...</div>
         <div className="drag-drop-container">
-          <DragAndDrop onUpload={onUpload} count={1} formats={["jpg", "png"]}>
+          <DragAndDrop
+            onUpload={onUpload}
+            count={countOfFilesSupported}
+            formats={fileFormatsSupported}
+          >
             <div className="drag-drop-area">
               <div className="placeholder-container">
                 <img
@@ -29,11 +46,13 @@ function App() {
         </div>
         <div className="or-label">Or</div>
         <div>
-          {/* TODO: Make this into a component */}
-          <label className="choose-file-button-container choose-file-button">
-            <input type="file" id="choose-file" name="choose-file" />
-            Choose file
-          </label>
+          <ChooseFile
+            className={"choose-file-button-container choose-file-button"}
+            count={countOfFilesSupported}
+            formats={fileFormatsSupported}
+            onUpload={onUpload}
+            handleError={onValiationError}
+          />
         </div>
       </div>
     </div>
