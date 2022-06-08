@@ -66,3 +66,5 @@ $ yarn start
 
 - [How to Upload Images in Your Node.js App?](https://javascript.plainenglish.io/upload-images-in-your-node-app-e05d0423fd4a)
 - [How to connect Node.js with React.js?](https://www.geeksforgeeks.org/how-to-connect-node-js-with-react-js/)
+- [How to Implement the Drag-and-Drop of Files in React](https://betterprogramming.pub/how-to-implement-files-drag-and-drop-in-react-22cf42b7a7ef)
+- [Documentation <input type="file">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file)
