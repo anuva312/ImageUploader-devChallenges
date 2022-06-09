@@ -2,7 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./DragAndDrop.css";
 
-export default function DragAndDrop({ onUpload, children, count, formats }) {
+export default function DragAndDrop({
+  onUpload,
+  children,
+  count,
+  formats,
+  handleError,
+}) {
   const drop = React.useRef(null);
   const [dragging, setDragging] = React.useState(false);
   const drag = React.useRef(null);
@@ -52,12 +58,11 @@ export default function DragAndDrop({ onUpload, children, count, formats }) {
 
     // check if the provided count prop is less than uploaded count of files
     if (count && count < files.length) {
-      showMessage(
+      showMessage("", "error", 2000);
+      handleError(
         `Sorry, only ${count} file${
           count !== 1 ? "s" : ""
-        } can be uploaded at a time`,
-        "error",
-        2000
+        } can be uploaded at a time`
       );
       return;
     }
@@ -72,18 +77,17 @@ export default function DragAndDrop({ onUpload, children, count, formats }) {
           )
       )
     ) {
-      showMessage(
+      showMessage("", "error", 2000);
+      handleError(
         `Sorry, only following file formats are acceptable: ${formats.join(
           ", "
-        )}`,
-        "error",
-        2000
+        )}`
       );
       return;
     }
 
     if (files && files.length) {
-      showMessage("Proceeding to upload...", "success", 1000);
+      showMessage("", "success", 1000); //Proceeding to upload...
       onUpload(files);
     }
   };
@@ -131,20 +135,20 @@ export default function DragAndDrop({ onUpload, children, count, formats }) {
           className={`drag-and-drop-placeholder drag-and-drop-placeholder--${message.type}`}
         >
           {message.text}
-          <span role="img" aria-label="emoji" className="area__icon">
+          {/* <span role="img" aria-label="emoji" className="area__icon">
             {message.type === "error" ? <>&#128546;</> : <>&#128536;</>}
-          </span>
+          </span> */}
         </div>
       )}
       {dragging && (
         <div ref={drag} className="drag-and-drop-placeholder">
-          Drop that file down low
+          {/* Drop that file down low
           <span role="img" aria-label="emoji" className="area__icon">
             &#128526;
-          </span>
+          </span> */}
         </div>
       )}
-      {children}
+      <div className="drag-drop-area">{children}</div>
       {/* <div className="drag-drop-area">
         Drag and Drop your image here
         <span role="img" aria-label="emoji" className="area__icon">

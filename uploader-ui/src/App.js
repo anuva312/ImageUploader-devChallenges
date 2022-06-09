@@ -28,20 +28,21 @@ function App() {
             onUpload={onUpload}
             count={countOfFilesSupported}
             formats={fileFormatsSupported}
+            handleError={onValiationError}
           >
-            <div className="drag-drop-area">
-              <div className="placeholder-container">
-                <img
-                  src="/images/placeholder.png"
-                  alt="placeholder"
-                  className="placeholder-image"
-                ></img>
-              </div>
-              Drag and Drop your image here
-              {/* <span role="img" aria-label="emoji" className="area__icon">
+            {/* <div className="drag-drop-area"> */}
+            <div className="placeholder-container">
+              <img
+                src="/images/placeholder.png"
+                alt="placeholder"
+                className="placeholder-image"
+              ></img>
+            </div>
+            Drag and Drop your image here
+            {/* <span role="img" aria-label="emoji" className="area__icon">
                 &#128526;
               </span> */}
-            </div>
+            {/* </div> */}
           </DragAndDrop>
         </div>
         <div className="or-label">Or</div>
