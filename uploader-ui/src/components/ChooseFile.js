@@ -26,9 +26,10 @@ export default function ChooseFile({
 
   function validateFiles(input) {
     const filesList = input.files;
-    if (filesList.length === 0) {
-      handleError("No files currently selected for upload");
-    } else if (filesList.length > count) {
+    // if (filesList.length === 0) {
+    //   handleError("No files currently selected for upload");
+    // } else
+    if (filesList.length > count) {
       handleError(
         `Sorry, only ${count} file${
           count !== 1 ? "s" : ""
