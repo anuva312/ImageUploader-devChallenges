@@ -1,23 +1,18 @@
 const express = require("express");
+const cors = require("cors");
 var multer = require("multer");
 const PORT = process.env.PORT || 4000;
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello there!");
-});
-
-app.post("/post", (req, res) => {
-  console.log("Connected to React");
-  res.redirect("/");
-});
+app.use(express.json());
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
 });
 
 //store images in uploads folder
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./public/uploads/");
   },
@@ -38,15 +33,22 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
-var upload = multer({
+const upload = multer({
   storage: storage,
   fileFilter: fileFilter,
 });
 
-app.post("/uploadForm", upload.single("myImage"), async (req, res, next) => {
-  if (req.file) {
-    console.log("Uploaded to", req.file.path);
-    const pathName = req.file.path;
-    res.status(200).send(req.file);
+app.post(
+  "/api/v1/images",
+  upload.single("image-file"),
+  async (req, res, next) => {
+    console.log(req.file);
+    if (req.file) {
+      console.log("Uploaded to", req.file.path);
+      const pathName = req.file.path;
+      res.status(201).json({
+        message: "Image Uploaded Successfully",
+      });
+    }
   }
-});
+);

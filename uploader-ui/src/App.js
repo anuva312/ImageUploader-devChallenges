@@ -3,20 +3,55 @@ import DragAndDrop from "./components/DragAndDrop.js";
 import ChooseFile from "./components/ChooseFile.js";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
 
 function App() {
   const countOfFilesSupported = 1;
   const fileFormatsSupported = ["jpeg", "jpg", "png"];
-  const onUpload = function (file) {
-    console.log("File Uploading...", file);
+
+  const [uploadedImage, setUploadedImage] = useState(null);
+  const [isUploading, setIsUploading] = useState(false);
+  const [isUploadComplete, setIsUploadComplete] = useState(false);
+
+  const invokeUploadImageAPI = async function (data) {
+    const url = "http://localhost:4000/api/v1/images";
+
+    try {
+      const response = await (
+        await fetch(url, {
+          method: "POST",
+          mode: "cors",
+          body: data,
+        })
+      ).json();
+      onSuccess(response.message);
+      setIsUploading(false);
+      setIsUploadComplete(true);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const onUpload = function (files) {
+    console.log("File Uploading...", files);
+    setIsUploading(true);
+    const formData = new FormData();
+    formData.append("image-file", files[0]);
+    invokeUploadImageAPI(formData);
   };
 
   const onValiationError = function (message) {
-    console.log(message);
     toast.error(message, {
       theme: "colored",
     });
   };
+
+  const onSuccess = function (message) {
+    toast.success(message, {
+      theme: "colored",
+    });
+  };
+
   return (
     <div className="App">
       <ToastContainer />
