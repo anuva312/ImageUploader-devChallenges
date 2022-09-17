@@ -65,32 +65,28 @@ const upload = multer({
 
 // 1.Create
 
-app.post(
-  "/api/v1/images",
-  upload.single("image-file"),
-  async (req, res, next) => {
-    console.log("Request ", req.file);
-    if (req.file) {
-      res.status(201).json({
-        message: "Image Uploaded Successfully",
-        image: req.file.filename,
-      });
-    }
+const uploadImage = async (req, res, next) => {
+  console.log("Request ", req.file);
+  if (req.file) {
+    res.status(201).json({
+      message: "Image Uploaded Successfully",
+      image: req.file.filename,
+    });
   }
-);
+};
 
 // 2. Read
 
-app.get("/api/v1/images", (req, res) => {
+const getAllImages = (req, res) => {
   console.log("All Images");
   // TODO: Write code to get all images from DB
   res.status(200).json({
     status: "Success, images sent",
     images: [],
   });
-});
+};
 
-app.get("/api/v1/images/:id", (req, res) => {
+const getImage = (req, res) => {
   console.log("Image id", req.params);
   // TODO: Write code to get the specific image from DB
   let listOfImages = [];
@@ -108,7 +104,7 @@ app.get("/api/v1/images/:id", (req, res) => {
     status: "Success, images sent",
     images: req.params.id,
   });
-});
+};
 
 // 3. Update
 
@@ -119,7 +115,7 @@ PATCH is used when you receive only the specific properties that you are to upda
 
 */
 
-app.patch("/api/v1/images/:id", (req, res) => {
+const updateImage = (req, res) => {
   // TODO: Write code to update the specific image from DB
   let listOfImages = [];
   const id = req.params.id * 1;
@@ -136,11 +132,11 @@ app.patch("/api/v1/images/:id", (req, res) => {
     status: "Success, image updated successfully",
     image: ["Updated tour"],
   });
-});
+};
 
 // Delete
 
-app.delete("/api/v1/images/:id", (req, res) => {
+const deleteImage = (req, res) => {
   // TODO: Write code to delete the specific image from DB
   let listOfImages = [];
   const id = req.params.id * 1;
@@ -156,4 +152,23 @@ app.delete("/api/v1/images/:id", (req, res) => {
   res.status(204).json({
     status: "Success, image deleted successfully",
   });
-});
+};
+
+// Routes
+
+// app.post("/api/v1/images", upload.single("image-file"), uploadImage);
+// app.get("/api/v1/images", getAllImages);
+// app.get("/api/v1/images/:id", getImage);
+// app.patch("/api/v1/images/:id", updateImage);
+// app.delete("/api/v1/images/:id", deleteImage);
+
+app
+  .route("/api/v1/images")
+  .get(getAllImages)
+  .post(upload.single("image-file"), uploadImage);
+
+app
+  .route("/api/v1/images/:id")
+  .get(getImage)
+  .patch(updateImage)
+  .delete(deleteImage);
