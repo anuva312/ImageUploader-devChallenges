@@ -40,7 +40,7 @@ function App() {
     invokeUploadImageAPI(formData);
   };
 
-  const onValiationError = function (message) {
+  const onError = function (message) {
     toast.error(message, {
       theme: "colored",
     });
@@ -63,7 +63,7 @@ function App() {
             onUpload={onUpload}
             count={countOfFilesSupported}
             formats={fileFormatsSupported}
-            handleError={onValiationError}
+            handleError={onError}
           >
             {/* <div className="drag-drop-area"> */}
             <div className="placeholder-container">
@@ -87,7 +87,7 @@ function App() {
             count={countOfFilesSupported}
             formats={fileFormatsSupported}
             onUpload={onUpload}
-            handleError={onValiationError}
+            handleError={onError}
           />
         </div>
       </div>
