@@ -3,6 +3,8 @@ const imageController = require("./../controllers/imageController");
 
 const router = express.Router();
 
+router.param("id", imageController.checkId);
+
 router
   .route("/")
   .get(imageController.getAllImages)

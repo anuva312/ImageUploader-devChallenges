@@ -1,12 +1,31 @@
 const multer = require("multer");
 const Image = require("./../models/imageModel");
 
+// Middlewares
+
+// Check if the id provided is a valid id
+exports.checkId = (req, res, next, val) => {
+  console.log(`Image id is ${val}`);
+
+  let listOfImages = [];
+  const id = val * 1;
+  const image = listOfImages.find((el) => el.id === id);
+
+  if (!image) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+  next();
+};
+
 // For Uploading image using multer
 
 //store images in uploads folder
 const multerStorage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./uploader-ui/public/images/");
+    cb(null, `${__dirname}/../public/images`);
   },
   filename: function (req, file, cb) {
     cb(null, `${file.originalname}`);
@@ -70,19 +89,7 @@ exports.getAllImages = (req, res) => {
 };
 
 exports.getImage = (req, res) => {
-  console.log("Image id", req.params);
-  // TODO: Write code to get the specific image from DB
-  let listOfImages = [];
-  const id = req.params.id * 1;
-  const image = listOfImages.find((el) => el.id === id);
-
-  if (!image) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
-    });
-  }
-
+  // TODO: Write code to update the specific image from DB
   res.status(200).json({
     status: "Success, images sent",
     images: req.params.id,
@@ -100,17 +107,6 @@ exports.getImage = (req, res) => {
 
 exports.updateImage = (req, res) => {
   // TODO: Write code to update the specific image from DB
-  let listOfImages = [];
-  const id = req.params.id * 1;
-  const image = listOfImages.find((el) => el.id === id);
-
-  if (!image) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
-    });
-  }
-
   res.status(200).json({
     status: "Success, image updated successfully",
     image: ["Updated tour"],
@@ -121,17 +117,6 @@ exports.updateImage = (req, res) => {
 
 exports.deleteImage = (req, res) => {
   // TODO: Write code to delete the specific image from DB
-  let listOfImages = [];
-  const id = req.params.id * 1;
-  const image = listOfImages.find((el) => el.id === id);
-
-  if (!image) {
-    return res.status(404).json({
-      status: "fail",
-      message: "Invalid ID",
-    });
-  }
-
   res.status(204).json({
     status: "Success, image deleted successfully",
   });
