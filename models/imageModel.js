@@ -4,13 +4,18 @@ const imageSchema = new mongoose.Schema({
   image: {
     type: String,
     required: [true, "The image cannot be empty!"],
+  },
+  originalName: String,
+  path: {
+    type: String,
+    required: [true, "The image path cannot be empty!"],
     unique: true,
   },
   createdTime: {
     type: String,
     default: Date.now(),
   },
-  updatedTime: String,
+  lastUpdatedTime: String,
 });
 
 const Image = mongoose.model("Image", imageSchema);
