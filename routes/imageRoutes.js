@@ -16,7 +16,10 @@ router
 router
   .route("/:id")
   .get(imageController.getImage)
-  .patch(imageController.updateImage)
+  .patch(
+    imageController.uploadPicture.single("image-file"),
+    imageController.updateImage
+  )
   .delete(imageController.deleteImage);
 
 module.exports = router;
