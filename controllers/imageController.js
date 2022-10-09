@@ -49,7 +49,7 @@ exports.uploadPicture = multer({
   fileFilter: multerFilter,
 });
 
-// CRUD Operation
+// CRUD Operations
 
 // 1.Create
 exports.uploadImage = async (req, res) => {
@@ -237,6 +237,35 @@ exports.deleteImage = async (req, res) => {
     return res.status(500).json({
       status: "Fail",
       message: err,
+    });
+  }
+};
+
+exports.deleteAll = async (req, res) => {
+  try {
+    const deleted = await Image.deleteMany();
+    console.log("Deleted", deleted);
+    fs.readdir(storageLocation, (err, files) => {
+      if (err) throw err;
+      for (const file of files) {
+        const fileDeleted = removeImageFromServer(storageLocation, file);
+        if (!fileDeleted) {
+          console.log(`Unable to delete file : ${file}`);
+          throw `Unable to delete file : ${file}`;
+        }
+      }
+    });
+    res.status(204).json({
+      status: "Success",
+      data: {
+        deleted,
+      },
+    });
+  } catch (err) {
+    console.log("Delete All Images Error 💥", err);
+    return res.status(500).json({
+      status: "Fail",
+      message: "Unable to delete the images",
     });
   }
 };

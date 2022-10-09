@@ -11,7 +11,8 @@ router
   .post(
     imageController.uploadPicture.single("image-file"),
     imageController.uploadImage
-  );
+  )
+  .delete(imageController.deleteAll);
 
 router
   .route("/:id")
