@@ -22,9 +22,11 @@ export default function DragAndDrop({
     drop.current.addEventListener("dragover", handleDragOver);
     drop.current.addEventListener("drop", handleDrop);
 
+    const dragAndDropElement = drop.current;
+
     return () => {
-      drop.current.removeEventListener("dragover", handleDragOver);
-      drop.current.removeEventListener("drop", handleDrop);
+      dragAndDropElement.removeEventListener("dragover", handleDragOver);
+      dragAndDropElement.removeEventListener("drop", handleDrop);
     };
   }, []);
 
@@ -34,11 +36,13 @@ export default function DragAndDrop({
     drop.current.addEventListener("dragenter", handleDragEnter);
     drop.current.addEventListener("dragleave", handleDragLeave);
 
+    const dragAndDropElement = drop.current;
+
     return () => {
-      drop.current.removeEventListener("dragover", handleDragOver);
-      drop.current.removeEventListener("drop", handleDrop);
-      drop.current.removeEventListener("dragenter", handleDragEnter);
-      drop.current.removeEventListener("dragleave", handleDragLeave);
+      dragAndDropElement.removeEventListener("dragover", handleDragOver);
+      dragAndDropElement.removeEventListener("drop", handleDrop);
+      dragAndDropElement.removeEventListener("dragenter", handleDragEnter);
+      dragAndDropElement.removeEventListener("dragleave", handleDragLeave);
     };
   }, []);
 
@@ -135,26 +139,10 @@ export default function DragAndDrop({
           className={`drag-and-drop-placeholder drag-and-drop-placeholder--${message.type}`}
         >
           {message.text}
-          {/* <span role="img" aria-label="emoji" className="area__icon">
-            {message.type === "error" ? <>&#128546;</> : <>&#128536;</>}
-          </span> */}
         </div>
       )}
-      {dragging && (
-        <div ref={drag} className="drag-and-drop-placeholder">
-          {/* Drop that file down low
-          <span role="img" aria-label="emoji" className="area__icon">
-            &#128526;
-          </span> */}
-        </div>
-      )}
+      {dragging && <div ref={drag} className="drag-and-drop-placeholder"></div>}
       <div className="drag-drop-area">{children}</div>
-      {/* <div className="drag-drop-area">
-        Drag and Drop your image here
-        <span role="img" aria-label="emoji" className="area__icon">
-          &#128526;
-        </span> */}
-      {/* </div> */}
     </div>
   );
 }
