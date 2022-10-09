@@ -42,24 +42,25 @@ _Coming Soon..._
 
 <!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
 
-- [Node JS]()
+- [Node JS](https://nodejs.org/en/)
 - [React](https://reactjs.org/)
+- [Mongoose](https://mongoosejs.com/)
 
 ## How To Use
 
 <!-- For example: -->
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [yarn](https://yarnpkg.com/). From your command line:
+To clone and run this application, you'll need [Git](https://git-scm.com) and [npm](https://www.npmjs.com/). From your command line:
 
 ```bash
 # Clone this repository
-$ git clone []
+$ git clone "https://github.com/anuva312/ImageUploader-devChallenges"
 
 # Install dependencies
-$ yarn install
+$ npm install
 
 # Run the app
-$ yarn start
+$ npm start
 ```
 
 ## Acknowledgements
@@ -67,4 +68,6 @@ $ yarn start
 - [How to Upload Images in Your Node.js App?](https://javascript.plainenglish.io/upload-images-in-your-node-app-e05d0423fd4a)
 - [How to connect Node.js with React.js?](https://www.geeksforgeeks.org/how-to-connect-node-js-with-react-js/)
 - [How to Implement the Drag-and-Drop of Files in React](https://betterprogramming.pub/how-to-implement-files-drag-and-drop-in-react-22cf42b7a7ef)
-- [Documentation <input type="file">](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file)
+- [Documentation for file input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file)
+- [How to create a Loader](https://www.w3schools.com/howto/howto_css_loader.asp)
+- [Line Loading Animation](https://codepen.io/ziafatali/pen/mxVwpq)
