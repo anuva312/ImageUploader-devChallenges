@@ -12,20 +12,34 @@
   min-height: 469px;
 }
 
+.uploading-container {
+  min-height: 144px;
+}
+
+.upload-success-container {
+  padding: 30px 36px;
+}
+
+.loader-container {
+  display: flex;
+  /* margin: 0 auto; */
+  padding: 0 15px;
+  /* align-items: center; */
+}
+
 .heading {
   font-family: "Poppins";
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 18px;
   line-height: 27px;
-  padding: 36px 25% 10px;
-  /* identical to box height */
-
-  letter-spacing: -0.035em;
-
-  /* Gray 2 */
-
+  padding: 36px 0 10px;
   color: #4f4f4f;
+}
+
+.uploading-heading {
+  text-align: left;
+  padding: 25px 15px;
 }
 
 .help-text {
@@ -34,12 +48,9 @@
   font-weight: 500;
   font-size: 10px;
   line-height: 15px;
-  /* identical to box height */
 
   text-align: center;
   letter-spacing: -0.035em;
-
-  /* Gray 3 */
 
   color: #828282;
 }
@@ -98,10 +109,11 @@
   padding: 8px 16px;
 }
 
-.choose-file-button {
+.choose-file-button,
+.copy-link-button {
   margin: 0 auto;
   max-width: 101px;
-  height: 31.98px;
+  min-height: 31.98px;
   background: #2f80ed;
   border-radius: 8px;
   font-family: "Noto Sans";
@@ -109,9 +121,90 @@
   font-weight: 500;
   font-size: 12px;
   color: #ffffff;
+  border: none;
+  cursor: pointer;
 }
 
 input[type="file"] {
   opacity: 0;
   width: 0px;
+}
+
+.check-icon {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 80;
+  color: #219653;
+  font-size: 50px;
+}
+
+.check-icon-container {
+  padding-bottom: 10px;
+}
+
+.uploaded-successfully-heading {
+  padding: 0;
+}
+
+.uploaded-image-container {
+  margin: 25px 0;
+  min-height: 224px;
+}
+
+.uploaded-image {
+  object-fit: contain;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.copy-link-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  background: #f6f8fb;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.copy-link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  margin: 0;
+  border: none;
+  transition: 0.3s;
+}
+
+.copy-link-button:hover {
+  border-bottom: 2px solid #2976dd;
+}
+
+.choose-file-button:hover,
+.copy-link-button:active {
+  background: #2976dd;
+}
+
+.image-link {
+  align-self: center;
+  width: 65%;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  text-align: center;
+  letter-spacing: -0.035em;
+  color: #4f4f4f;
+}
+
+.spinner-main-container,
+.loader-spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
