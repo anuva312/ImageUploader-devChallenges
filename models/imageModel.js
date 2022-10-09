@@ -12,10 +12,10 @@ const imageSchema = new mongoose.Schema({
     unique: true,
   },
   createdTime: {
-    type: String,
+    type: Date,
     default: Date.now(),
   },
-  lastUpdatedTime: String,
+  lastUpdatedTime: Date,
 });
 
 const Image = mongoose.model("Image", imageSchema);
