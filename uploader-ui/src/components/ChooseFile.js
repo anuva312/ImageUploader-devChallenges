@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 export default function ChooseFile({
   onUpload,
@@ -14,21 +13,8 @@ export default function ChooseFile({
     return supportedFormats.includes(file.type);
   }
 
-  function returnFileSize(number) {
-    if (number < 1024) {
-      return number + "bytes";
-    } else if (number >= 1024 && number < 1048576) {
-      return (number / 1024).toFixed(1) + "KB";
-    } else if (number >= 1048576) {
-      return (number / 1048576).toFixed(1) + "MB";
-    }
-  }
-
   function validateFiles(input) {
     const filesList = input.files;
-    // if (filesList.length === 0) {
-    //   handleError("No files currently selected for upload");
-    // } else
     if (filesList.length > count) {
       handleError(
         `Sorry, only ${count} file${
