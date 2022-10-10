@@ -22,9 +22,7 @@
 
 .loader-container {
   display: flex;
-  /* margin: 0 auto; */
   padding: 0 15px;
-  /* align-items: center; */
 }
 
 .heading {
@@ -56,14 +54,10 @@
 }
 
 .drag-drop-container {
-  /* width : 238px;
-  height: 218.9px; */
   margin: 25px auto;
 }
 
 .drag-drop-area {
-  /* width: 100%;
-  height: 100%; */
   margin: 0 32px;
   min-width: 238px;
   min-height: 218.9px;

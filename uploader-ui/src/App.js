@@ -28,7 +28,6 @@ function App() {
           body: data,
         })
       ).json();
-      console.log("Response Received ", response);
       onUploadSuccess(response.data, response.image);
     } catch (error) {
       console.error(error);
@@ -39,7 +38,6 @@ function App() {
   };
 
   const onUpload = function (files) {
-    console.log("File Uploading...", files);
     setIsHomePage(false);
     setIsUploading(true);
     const formData = new FormData();
