@@ -32,11 +32,21 @@ Fulfill user stories below:
 
 ### Demo
 
-Find the website in action [here]()!
+Find the website in action [here](https://master--exquisite-heliotrope-34a798.netlify.app/)!
 
 ### Demo Screenshots
 
-_Coming Soon..._
+_*Home Page*_
+
+![home-page](screenshots/home-page.PNG)
+
+_*File is being uploaded*_
+
+![uploading image](screenshots/uploading-loader.PNG)
+
+_*Image Uploaded Successfully*_
+
+![image-upload-success](screenshots/upload-successful.PNG)
 
 ### Built With
 
@@ -65,6 +75,7 @@ $ npm start
 
 ## Acknowledgements
 
+- [Node.js, Express, MongoDB & More: The Complete Bootcamp 2022](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/)
 - [How to Upload Images in Your Node.js App?](https://javascript.plainenglish.io/upload-images-in-your-node-app-e05d0423fd4a)
 - [How to connect Node.js with React.js?](https://www.geeksforgeeks.org/how-to-connect-node-js-with-react-js/)
 - [How to Implement the Drag-and-Drop of Files in React](https://betterprogramming.pub/how-to-implement-files-drag-and-drop-in-react-22cf42b7a7ef)
