@@ -10,7 +10,7 @@ import LoaderSpinner from "./components/LoaderSpinner.js";
 function App() {
   const countOfFilesSupported = 1;
   const fileFormatsSupported = ["jpeg", "jpg", "png"];
-  const domainURL = "http://localhost:4000";
+  const domainURL = "https://powerful-waters-19691.herokuapp.com";
 
   const [isHomePage, setIsHomePage] = useState(true);
   const [uploadedImage, setUploadedImage] = useState(null);
@@ -18,7 +18,7 @@ function App() {
   const [isUploadComplete, setIsUploadComplete] = useState(false);
 
   const invokeUploadImageAPI = async function (data) {
-    const url = "http://localhost:4000/api/v1/images";
+    const url = `${domainURL}/api/v1/images`;
 
     try {
       const response = await (
