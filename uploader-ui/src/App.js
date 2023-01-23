@@ -10,7 +10,7 @@ import LoaderSpinner from "./components/LoaderSpinner.js";
 function App() {
   const countOfFilesSupported = 1;
   const fileFormatsSupported = ["jpeg", "jpg", "png"];
-  const domainURL = "https://powerful-waters-19691.herokuapp.com";
+  const domainURL = "https://anuva-image-uploader.onrender.com/";
 
   const [isHomePage, setIsHomePage] = useState(true);
   const [uploadedImage, setUploadedImage] = useState(null);
