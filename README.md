@@ -11,6 +11,7 @@ Solution to the [Image Uploader Challenge](https://devchallenges.io/challenges/O
   - [Demo](#demo)
   - [Demo Screenshots](#demo-screenshots)
   - [Built With](#built-with)
+- [API Documentation](#api-documentation)
 - [How to Use](#how-to-use)
 - [Acknowledgements](#acknowledgements)
 
@@ -55,6 +56,27 @@ _*Image Uploaded Successfully*_
 - [Node JS](https://nodejs.org/en/)
 - [React](https://reactjs.org/)
 - [Mongoose](https://mongoosejs.com/)
+
+## API Documentation
+
+Find the API Documentation in detail in the wiki [here](https://github.com/anuva312/ImageUploader-devChallenges/wiki).
+
+### Domain URL
+
+    https://anuva-image-uploader.onrender.com
+
+_**Note** : Since I am using a free plan, the server goes to sleep after 15 min of inactivity and there will be a 30 sec delay for the server to wake up after it receives the first request. So if you don't get any response in the first try, please try again._
+
+### Available APIs
+
+| API                                                                                                         | Method | Endpoint            |
+| ----------------------------------------------------------------------------------------------------------- | ------ | ------------------- |
+| [Get All Images](https://github.com/anuva312/ImageUploader-devChallenges/wiki/Get-All-Images)               | GET    | /api/v1/images      |
+| [Get An Image By Id](https://github.com/anuva312/ImageUploader-devChallenges/wiki/Get-An-Image-By-Id)       | GET    | /api/v1/images/{id} |
+| [Get A Static File](https://github.com/anuva312/ImageUploader-devChallenges/wiki/Get-A-Static-File)         | GET    | /{path to file}     |
+| [Upload An Image](https://github.com/anuva312/ImageUploader-devChallenges/wiki/Upload-An-Image)             | POST   | /api/v1/images      |
+| [Delete All Images](https://github.com/anuva312/ImageUploader-devChallenges/wiki/Delete-All-Images)         | DELETE | /api/v1/images      |
+| [Delete An Image By Id](https://github.com/anuva312/ImageUploader-devChallenges/wiki/Delete-An-Image-By-Id) | DELETE | /api/v1/images/{id} |
 
 ## How To Use
 
