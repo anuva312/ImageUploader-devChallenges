@@ -109,6 +109,15 @@ function App() {
               Copy Link
             </button>
           </div>
+          <button
+            className="upload-another-button"
+            onClick={() => {
+              setIsUploadComplete(false);
+              setIsHomePage(true);
+            }}
+          >
+            Upload Another
+          </button>
         </div>
       ) : isHomePage ? (
         <div className="main-container">
