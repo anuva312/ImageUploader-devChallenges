@@ -92,7 +92,7 @@ $ git clone "https://github.com/anuva312/ImageUploader-devChallenges"
 $ npm install
 
 # Run the app
-$ npm start
+$ npm run start
 ```
 
 ## Acknowledgements
