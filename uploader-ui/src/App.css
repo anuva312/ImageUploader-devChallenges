@@ -214,3 +214,14 @@ input[type="file"] {
   justify-content: center;
   align-content: center;
 }
+
+@media only screen and (max-width: 500px) {
+  .main-container {
+    min-width: 300px;
+    width: 85%;
+  }
+
+  .upload-success-container {
+    width: 75%;
+  }
+}
