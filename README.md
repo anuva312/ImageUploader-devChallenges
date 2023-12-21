@@ -1,6 +1,6 @@
 # Image Uploader
 
-Solution to the [Image Uploader Challenge](https://devchallenges.io/challenges/O2iGT9yBd6xZBrOcVirx) from [Devchallenges.io](https://devchallenges.io/).
+Solution to the [Image Uploader Challenge](https://legacy.devchallenges.io/challenges/O2iGT9yBd6xZBrOcVirx) from [Devchallenges.io](https://legacy.devchallenges.io/).
 
 <!-- TABLE OF CONTENTS -->
 
